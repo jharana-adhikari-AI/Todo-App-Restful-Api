@@ -1,0 +1,36 @@
+{% extends "todo_app/base.html" %}
+{% block title %}Home - To-Do App{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="text-center">
+        <h1 class="display-2 fw-bold text-danger">Organize Your Day, Boost Your Productivity</h1>
+        <p class="lead text-danger">"The secret to success is getting started. Make every day productive!"</p>
+        <a href="{% url 'todo-list' %}" class="btn btn-primary btn-lg">📋 View To-Do List</a>
+        <a href="{% url 'todo-create' %}" class="btn btn-success btn-lg">✏️ Create New Task</a>
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <h2 class="fw-bold">Why Use Our To-Do App?</h2>
+    <p class="lead">Stay organized, track progress, and achieve more in less time.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" width="100" alt="Efficiency">
+            <h4>Efficiency</h4>
+            <p>Plan your daily tasks and complete them on time.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/3039/3039434.png" width="100" alt="Focus">
+            <h4>Focus</h4>
+            <p>Stay focused and get more done with clear task management.</p>
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/2010/2010856.png" width="100" alt="Growth">
+            <h4>Growth</h4>
+            <p>Track your progress and improve productivity every day.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

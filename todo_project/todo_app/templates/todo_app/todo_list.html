@@ -1,0 +1,28 @@
+{% extends "todo_app/base.html" %}
+
+{% block title %}To-Do List{% endblock %}
+
+{% block content %}
+    <h2 class="text-center mb-4">📋 Your To-Do List</h2>
+    <a href="{% url 'todo-create' %}" class="btn btn-success mb-3">✏️ Add New Task</a>
+    
+    {% if todos %}
+        <div class="row">
+            {% for todo in todos %}
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ todo.title }}</h5>
+                            <p class="card-text">{{ todo.description }}</p>
+                            <p>Status: {% if todo.completed %} ✅ Completed {% else %} ❌ Pending {% endif %}</p>
+                            <a href="{% url 'todo-update' todo.id %}" class="btn btn-warning btn-sm">✏️ Edit</a>
+                            <a href="{% url 'todo-delete' todo.id %}" class="btn btn-danger btn-sm">🗑 Delete</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h5 class="text-center">No tasks found. <a href="{% url 'todo-create' %}" class="btn btn-primary btn-sm">Add a new task</a>!</h5>
+    {% endif %}
+{% endblock %}
